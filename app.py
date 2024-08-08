@@ -14,12 +14,13 @@ def index():
 def process_xml():
     try:
         xml_file = request.files['file']
+        xml_filename = xml_file.filename # get the file name
         xml_content = xml_file.read()  # Read the XML content
 
         # Call Azure OAI and process the response
         # (Replace this with your actual logic)
         # For demonstration purposes, we'll return a dummy response
-        azure_oai_response = azure_oai_connector.process_xml_data(xml_content)
+        azure_oai_response = azure_oai_connector.process_xml_data(xml_content, xml_filename)
         
         print("response")
         print(azure_oai_response)
