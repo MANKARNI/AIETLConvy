@@ -19,7 +19,8 @@ def process_xml():
         # Call Azure OAI and process the response
         # (Replace this with your actual logic)
         # For demonstration purposes, we'll return a dummy response
-        azure_oai_response = azure_oai_connector.result
+        azure_oai_response = azure_oai_connector.process_xml_data(xml_content)
+        
         print("response")
         print(azure_oai_response)
 
