@@ -5,6 +5,7 @@ import json
 import azure_oai_connector
 
 app = Flask(__name__)
+xml_filename = 'aoi_response'
 
 @app.route('/')
 def index():
@@ -14,19 +15,20 @@ def index():
 def process_xml():
     try:
         xml_file = request.files['file']
+        global
         xml_filename = xml_file.filename # get the file name
         xml_content = xml_file.read()  # Read the XML content
 
         # Call Azure OAI and process the response
         # (Replace this with your actual logic)
         # For demonstration purposes, we'll return a dummy response
-        azure_oai_response = azure_oai_connector.process_xml_data(xml_content, xml_filename)
+        azure_oai_response = azure_oai_connector.process_xml_data(xml_content)
         
         print("response")
         print(azure_oai_response)
 
         # Save the response as a JSON file (optional)
-        with open('azure_oai_response.json', 'w') as json_file:
+        with open(f'{xml_filename}.json', 'w') as json_file:
             json.dump(azure_oai_response, json_file, indent=4)
 
         # Inside your process_xml route
@@ -37,7 +39,7 @@ def process_xml():
 
 @app.route('/download/response.json')
 def download_response():
-    return send_file('azure_oai_response.json', as_attachment=True)
+    return send_file(f'{xml_filename}.json', as_attachment=True)
 
 
 if __name__ == '__main__':
