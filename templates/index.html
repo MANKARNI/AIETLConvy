@@ -91,7 +91,7 @@
             <input type="submit" value="Upload">  
         </form>  
         <footer>  
-            &copy; 2024 ETL Convy  
+            © 2024 ETL Convy  
         </footer>  
     </div>    
     <script>
@@ -116,9 +116,9 @@
                         console.log(jsonResponse); // Log the Python response
                         // Create a download button and append it to the body
                         const downloadButton = document.createElement('a');
-                        downloadButton.href = '/download/response.json';
+                        downloadButton.href = jsonResponse.file_link; // Use the file link from the response
                         downloadButton.textContent = 'Download JSON';
-                        downloadButton.download = 'response.json';
+                        downloadButton.download = jsonResponse.file_link.split('/').pop(); // Use the filename from the response
                         downloadButton.className = 'download-button'; // Add a class for styling if needed
 
                         // Append the download button to the container div
