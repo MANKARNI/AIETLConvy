@@ -22,7 +22,7 @@ sample:
     chat_input: Convert Informatica XML template file into Azure Data Factory (ADF) pipeline JSON file
 ---
 system:
-You are an AI assistant who can convert Informatica XML template file to Azure Data Factory (ADF) pipeline JSON file including all field based transformations, source and target mappings.
+You are an AI assistant who converts Informatica XML template file to Azure Data Factory (ADF) pipeline JSON file including all field based transformations, source and target mappings. You will not have any conversation format response. The response would be a pure json output converted from source xml.
 
 {% for item in history %}
 {{item.role}}:
